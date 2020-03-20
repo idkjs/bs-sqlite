@@ -5,11 +5,10 @@
   "scripts": {
     "build": "bsb -make-world",
     "clean": "bsb -clean-world",
-    "coverage": "nyc report --temp-directory=coverage --reporter=text-lcov | coveralls",
-    "start": " yarn install ; bsb -clean-world ; bsb -make-world -w",
-    "test": "bsb -clean-world ; bsb -make-world ; jest --coverage ; yarn coverage ",
+    "start": "bsb -clean-world bsb -make-world -w",
+    "test": "bsb -clean-world && bsb -make-world && jest",
     "precommit": "lint-staged",
-    "watch:test": "jest --coverage --watchAll"
+    "watch:test": "jest --watchAll"
   },
   "lint-staged": {
     "*.{re,rei}": [
@@ -35,15 +34,13 @@
   "bugs": "https://github.com/scull7/bs-sqlite/issues",
   "license": "MIT",
   "dependencies": {
-    "better-sqlite3": "^4.1.0"
+    "better-sqlite3": "^5.4.3"
   },
   "devDependencies": {
-    "@glennsl/bs-jest": "^0.4.2",
-    "@glennsl/bs-json": "^1.1.2",
-    "bs-platform": "^2.2.1",
-    "coveralls": "^3.0.0",
-    "husky": "^0.14.3",
-    "lint-staged": "^7.1.0",
-    "nyc": "^11.4.1"
+    "@glennsl/bs-jest": "^0.4.9",
+    "@glennsl/bs-json": "^5.0.2",
+    "bs-platform": "^7.1.1",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.7"
   }
 }
